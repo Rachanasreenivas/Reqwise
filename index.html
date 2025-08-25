@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ReqWise Dashboard</title>
+</head>
+<body>
+    <h1>ReqWise – Smart Infrastructure Request Workflow</h1>
+
+    <a href="{{ url_for('request_resource') }}">Submit New Request</a>
+    <br><br>
+
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>Team Name</th>
+            <th>Resource Type</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Request Time</th>
+            <th>Cost Estimate ($)</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for row in data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>{{ row[6] }}</td>
+            <td>
+                <a href="{{ url_for('approve', req_id=row[0]) }}">Approve</a> |
+                <a href="{{ url_for('reject', req_id=row[0]) }}">Reject</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

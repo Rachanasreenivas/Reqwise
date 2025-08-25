@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Request - ReqWise</title>
+</head>
+<body>
+    <h1>Submit Infrastructure Request</h1>
+
+    <form method="POST">
+        <label>Team Name:</label><br>
+        <input type="text" name="team_name" required><br><br>
+
+        <label>Resource Type:</label><br>
+        <select name="resource_type" required>
+            <option value="storage">Storage</option>
+            <option value="vm">Virtual Machine</option>
+            <option value="database">Database</option>
+        </select><br><br>
+
+        <label>Amount:</label><br>
+        <input type="number" name="amount" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('index') }}">Back to Dashboard</a>
+</body>
+</html>
